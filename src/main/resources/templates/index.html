@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редих Ярослав Юрьевич</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #FFDAB9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        input {
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+
+<form action="/calculate" method="post">
+    <label for="inputString">Введите строку:</label>
+    <input type="text" id="inputString" name="inputString" required>
+    <button type="submit">Подсчет</button>
+</form>
+
+<div id="result" th:if="${result != null}">
+    <h2>Результат:</h2>
+    <p>Введенная строка: <span th:text="${inputString}"></span></p>
+    <ul>
+        <li th:each="entry : ${result}">
+            Символ: <span th:text="${entry.key}"></span>,
+            Количество повторений: <span th:text="${entry.value}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
