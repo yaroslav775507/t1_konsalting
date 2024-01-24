@@ -24,7 +24,6 @@ public class abController {
     @PostMapping("/calculate")
     public String calculateFrequency(@RequestParam String inputString, Model model) {
         Map<Character, Integer> result = calculateCharacterFrequency(inputString);
-        // Добавим сортировку по убыванию
         result = sortByValueDescending(result);
         model.addAttribute("inputString", inputString);
         model.addAttribute("result", result);
