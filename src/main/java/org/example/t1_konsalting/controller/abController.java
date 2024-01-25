@@ -41,7 +41,7 @@ public class abController {
         return characterIntegerMap;
     }
 
-    private static Map<Character, Integer> sortByValueDescending(Map<Character, Integer> unsortedMap) {
+    protected static Map<Character, Integer> sortByValueDescending(Map<Character, Integer> unsortedMap) {
         return unsortedMap.entrySet()
                 .stream()
                 .sorted(Entry.<Character, Integer>comparingByValue().reversed())
